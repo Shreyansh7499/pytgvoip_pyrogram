@@ -187,7 +187,8 @@ class VoIPCallBase:
                              DataSaving.NEVER, self.call.id)
         self.ctrl.set_encryption_key(self.auth_key_bytes, self.is_outgoing)
         endpoints = [Endpoint(e.id, e.ip, e.ipv6, e.port, e.peer_tag) for e in self.call.connections]
-        self.ctrl.set_remote_endpoints(endpoints, self.call.p2p_allowed, False, self.call.protocol.max_layer)
+        # Setting tcp option to be True in the below function to force TCP based call instead of default UDP
+        self.ctrl.set_remote_endpoints(endpoints, self.call.p2p_allowed, True, self.call.protocol.max_layer)
         self.ctrl.start()
         self.ctrl.connect()
         self.ctrl_started = True

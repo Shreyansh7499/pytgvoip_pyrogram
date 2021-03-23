@@ -87,3 +87,4 @@ fabric.properties
 *.wav
 config.ini
 unknown_errors.txt
+*config.py

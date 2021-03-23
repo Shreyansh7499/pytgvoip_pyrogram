@@ -88,6 +88,8 @@ class VoIPFileStreamCallMixin(VoIPCallBase):
             if len(frame) != length:
                 self.input_files[0].close()
                 self.input_files.popleft()
+                # Discard call to stop playing the streamed file in loop
+                self.discard_call()
         elif len(self.hold_files):
             frame = self.hold_files[0].read(length)
             if len(frame) != length:
