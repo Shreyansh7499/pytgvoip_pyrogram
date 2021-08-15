@@ -81,7 +81,7 @@ crashlytics-build.properties
 fabric.properties
 
 *.session
-*.raw
+# *.raw
 *.mp3
 *.mp4
 *.wav

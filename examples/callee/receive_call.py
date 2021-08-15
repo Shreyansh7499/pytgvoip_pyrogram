@@ -21,7 +21,7 @@ async def process_call(call: VoIPIncomingFileStreamCall):  # use VoIPIncomingNat
     await call.accept()
     call.play(BASE_DIR / 'examples/callee/audio_files/input.raw')
     call.play_on_hold([BASE_DIR / 'examples/callee/audio_files/input.raw'])
-    call.set_output_file(f'{BASE_DIR}/examples/callee/audio_files/output{str(NUM_CALLS)}.raw')
+    call.set_output_file(f'{BASE_DIR}/examples/callee/audio_files/recordings/output{str(NUM_CALLS)}.raw')
     NUM_CALLS += 1
 
     @call.on_call_ended
