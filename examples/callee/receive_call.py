@@ -19,9 +19,9 @@ service = VoIPFileStreamService(client)  # use VoIPNativeIOService for native I/
 async def process_call(call: VoIPIncomingFileStreamCall):  # use VoIPIncomingNativeIOCall for native I/O
     global NUM_CALLS
     await call.accept()
-    call.play(BASE_DIR / 'audio_files/input.raw')
-    call.play_on_hold([BASE_DIR / 'audio_files/input.raw'])
-    call.set_output_file(f'{BASE_DIR}/audio_files/recordings/output{str(NUM_CALLS)}.raw')
+    call.play(str(BASE_DIR / 'audio_files/input.raw'))
+    call.play_on_hold([str(BASE_DIR / 'audio_files/input.raw')])
+    call.set_output_file(f'{str(BASE_DIR)}/audio_files/recordings/output{str(NUM_CALLS)}.raw')
     NUM_CALLS += 1
 
     @call.on_call_ended
